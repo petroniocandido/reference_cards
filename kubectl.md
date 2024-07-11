@@ -36,9 +36,9 @@ kubectl delete -f <filename> | delete resources from a manifest file
 kubectl get namespaces | list all namespaces
 kubectl create ns <name> | create a new namespace
 
-## Pods
+### Pods
 
-kubectl get pods --namespace kube-system | list pods of a specific namespace
+kubectl get pods -n <namespace> | list pods of a specific namespace
 kubectl get pods -A | list pods of all namespaces
 kubectl describe pod | get more information about a pod
 kubectl logs | get log information of a specific pod
