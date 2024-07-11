@@ -60,3 +60,61 @@
 | Command | Description |
 | --- | --- |
 |```kubectl get ServiceAccount -A``` | see all service accounts in all namespaces
+
+### Secrets
+| Command | Description |
+| --- | --- |
+|```kubectl get secrets -A``` | see all secrets in all namespaces
+
+### CronJobs (cj)
+
+| Command | Description |
+| --- | --- |
+|```kubectl create cronjob my-cron --image=busybox --schedule="*/5 * * * *" -- echo hello``` | create a CronJob
+|```kubectl edit cronjob/my-cron``` | update a CronJob
+|```KUBE_EDITOR="nano" kubectl edit cronjob/my-cron``` | update a CronJob with a specific IDE
+|```kubectl delete cronjob my-cron``` | delete a CronJob
+
+### ConfigMap
+
+### Deployments
+
+| Command | Description |
+| --- | --- |
+|```kubectl get deployment``` |
+
+### Services
+
+| Command | Description |
+| --- | --- |
+|```kubectl get services -A``` | see all services in all namespaces
+
+### Events
+
+| Command | Description |
+| --- | --- |
+|```kubectl get events --sort-by=.metadata.creationTimestamp```| 
+
+### Ingress
+
+| Command | Description |
+| --- | --- |
+|```kubectl get ingress -A``` | see all ingresses in all namespaces
+|```kubectl get ingress mymicroservice -o yaml``` | see a resource definition
+
+## Actions
+### Scale
+| Command | Description |
+| --- | --- |
+|```kubectl scale``` | 
+
+### Port forwarding
+| Command | Description |
+| --- | --- |
+|```kubectl port-forward xxx 8080:80``` |
+
+### Proxy
+| Command | Description |
+| --- | --- |
+|```kubectl proxy```|  runs a proxy to the Kubernetes API Server
+
