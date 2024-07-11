@@ -33,11 +33,15 @@ kubectl delete -f <filename> | delete resources from a manifest file
 ## Objects
 ### Namespaces (ns)
 
+| Command | Description |
+| --- | --- |
 kubectl get namespaces | list all namespaces
 kubectl create ns <name> | create a new namespace
 
 ### Pods
 
+| Command | Description |
+| --- | --- |
 kubectl get pods -n <namespace> | list pods of a specific namespace
 kubectl get pods -A | list pods of all namespaces
 kubectl describe pod | get more information about a pod
@@ -53,4 +57,6 @@ kubectl cp <namespace>/<pod-name>:my-file.txt my-file.txt |  download or upload 
 
 ### ServiceAccounts
 
+| Command | Description |
+| --- | --- |
 kubectl get ServiceAccount -A | see all service accounts in all namespaces
