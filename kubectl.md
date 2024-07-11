@@ -10,7 +10,18 @@
 |```kubectl config get-contexts``` | display context configuration
 |```kubectl config use-context <cluster-name>``` | change context
 
-## Cluster information
+## Formatting output
+
+| Command | Description |
+| --- | --- |
+-o=name	| Print only the resource name and nothing else
+-o=wide	| Output in the plain-text format with any additional information, and for pods, the node name is included
+-o=json	| Output a JSON formatted API object
+-o=yaml	| Output a YAML formatted API object
+
+## Cluster 
+
+### General information
 
 | Command | Description |
 | --- | --- |
@@ -21,6 +32,17 @@
 |```kubectl get nodes``` | list all the nodes in the cluster and report their status and Kubernetes version
 |```kubectl top pods``` | show the CPU and memory capacity of each node, and how much of each is currently in use
 |```kubectl get deploy,rs,po,svc,ep``` | view several resources at once
+
+### Nodes
+
+| Command | Description |
+| --- | --- |
+|```kubectl get nodes``` | list all the nodes in the cluster and report their status and Kubernetes version
+|```kubectl cordon my-node``` | Mark my-node as unschedulable
+|```kubectl uncordon my-node``` | Mark my-node as schedulable
+|```kubectl drain my-node``` | Drain my-node in preparation for maintenance
+|```kubectl top node``` | Show metrics for all nodes
+|```kubectl top node my-node``` | Show metrics for a given node
 
 ## Management
 
