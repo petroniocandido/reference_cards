@@ -6,7 +6,7 @@
 
 | Command | Description |
 | --- | --- |
-kubectl config current-context |  get current context
+```kubectl config current-context``` |  get current context
 kubectl config get-contexts | display context configuration
 kubectl config use-context <cluster-name> | change context
 
