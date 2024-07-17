@@ -65,6 +65,7 @@
 |```kubectl diff -f <filename>``` | 
 |```kubectl patch ``` | Directly modify specific fields of a live object by using a patch string. 
 |```kubectl set``` | Set an aspect of an object.
+|```kubectl explain pods``` |
 
 ## Objects
 ### Namespaces (ns)
