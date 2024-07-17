@@ -11,7 +11,7 @@
 |```kubectl config use-context <cluster-name>``` | change context
 |```kubectl config get-clusters``` | Get cluster name
 
-## Formatting output
+### Formatting output
 
 | Command | Description |
 | --- | --- |
@@ -19,6 +19,12 @@
 -o=wide	| Output in the plain-text format with any additional information, and for pods, the node name is included
 -o=json	| Output a JSON formatted API object
 -o=yaml	| Output a YAML formatted API object
+
+### Other Parameters
+| Command | Description |
+| --- | --- |
+ --field-selector <yaml.file.field>==<value> | In get statement, return only the objects that match with the field
+ -l <label-name>==<label-value> | In get statement, return only the objects that have the label
 
 ## Cluster 
 
@@ -50,8 +56,15 @@
 | Command | Description |
 | --- | --- |
 |```kubectl create -f <filename>``` | create resources from a manifest file
+|```kubectl create <object-type> [<sub-type>] <instance-name>``` | 
 |```kubectl update -f <filename>``` | create or update resources from a manifest file
+|```kubectl replace -f <filename|url>``` | 
 |```kubectl delete -f <filename>``` | delete resources from a manifest file
+|```kubectl edit``` |  Directly edit the raw configuration of a live object by opening its configuration in an editor.
+|```kubectl apply -f <filename>``` | 
+|```kubectl diff -f <filename>``` | 
+|```kubectl patch ``` | Directly modify specific fields of a live object by using a patch string. 
+|```kubectl set``` | Set an aspect of an object.
 
 ## Objects
 ### Namespaces (ns)
@@ -130,12 +143,13 @@
 ### Scale
 | Command | Description |
 | --- | --- |
-|```kubectl scale``` | 
+|```kubectl scale deployments/<container-name> --replicas=<expected-number-of-replicas> ``` |  to scale the deployment to expected number of replicas
 
 ### Port forwarding
 | Command | Description |
 | --- | --- |
 |```kubectl port-forward xxx 8080:80``` |
+|```kubectl expose --port=<port-number> --target-port=<port-number <container-name> ``` | Expose a resource as a new Kubernetes service.
 
 ### Proxy
 | Command | Description |
