@@ -9,6 +9,7 @@
 |```kubectl config current-context``` |  get current context
 |```kubectl config get-contexts``` | display context configuration
 |```kubectl config use-context <cluster-name>``` | change context
+|```kubectl config get-clusters``` | Get cluster name
 
 ## Formatting output
 
