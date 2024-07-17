@@ -83,9 +83,9 @@ docker service logs stackname servicename	| Lista todos os registros (logs) de s
 ### Networking
 | Command | Description |
 | --- | --- |
-docker network create networkname	Cria uma nova rede (new network)
-docker network rm networkname	Remove uma rede específica
-docker network ls	Lista todas as redes
-docker network connect networkname container	Conecta um container a uma rede
-docker network disconnect networkname container	Desconecta um container de uma rede
-docker network inspect networkname	Exibe informações detalhadas sobre a rede (network)
+docker network create networkname	| Cria uma nova rede (new network)
+docker network rm networkname	| Remove uma rede específica
+docker network ls	| Lista todas as redes
+docker network connect networkname container	|Conecta um container a uma rede
+docker network disconnect networkname container	| Desconecta um container de uma rede
+docker network inspect networkname	| Exibe informações detalhadas sobre a rede (network)
