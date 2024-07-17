@@ -64,6 +64,7 @@
 
 | Command | Description |
 | --- | --- |
+|```kubectl run -i --tty --attach <pod-name> --image <docker-image> -- <command>```| Create a new pod based on a given image and run a command
 |```kubectl get pods -n <namespace>``` | list pods of a specific namespace
 |```kubectl get pods -A``` | list pods of all namespaces
 |```kubectl describe pod``` | get more information about a pod
@@ -73,9 +74,9 @@
 |```kubectl describe pod <pod-name> --namespace <namespace>``` |  desribe a pod
 |```kubectl logs [--tail=20] [--since=1h] <pod-name>``` | get pod logs
 |```kubectl top pod <pod-name> --containers``` |  display metrics about a pod and its containers
-|```kubectl exec -it <pod-name> -n <namespace> -- /bin/bash``` | execute commands inside a pod (for investigation purpose)
-|```kubectl cp my-file.txt <namespace>/<pod-name>:my-file.txt``` |  download or upload files from a container
-|```kubectl cp <namespace>/<pod-name>:my-file.txt my-file.txt``` |  download or upload files from a container
+|```kubectl exec -it <pod-name> -n <namespace> -- <command>``` | execute commands inside a pod (for investigation purpose)
+|```kubectl cp <file-src> <namespace>/<pod-name>:<file-dst>``` |  download or upload files from a container
+|```kubectl cp <namespace>/<pod-name>:<file-src> <file-dst>``` |  download or upload files from a container
 
 ### ServiceAccounts
 
