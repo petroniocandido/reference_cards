@@ -11,20 +11,17 @@
 |```kubectl config use-context <cluster-name>``` | change context
 |```kubectl config get-clusters``` | Get cluster name
 
-### Formatting output
+## General Parameters
 
 | Command | Description |
 | --- | --- |
--o=name	| Print only the resource name and nothing else
--o=wide	| Output in the plain-text format with any additional information, and for pods, the node name is included
--o=json	| Output a JSON formatted API object
--o=yaml	| Output a YAML formatted API object
-
-### Other Parameters
-| Command | Description |
-| --- | --- |
- --field-selector <yaml.file.field>==<value> | In get statement, return only the objects that match with the field
- -l <label-name>==<label-value> | In get statement, return only the objects that have the label
+|```-o=name```	| Print only the resource name and nothing else
+|```-o=wide```	| Output in the plain-text format with any additional information, and for pods, the node name is included
+|```-o=json```	| Output a JSON formatted API object
+|```-o=yaml```	| Output a YAML formatted API object
+|``` --field-selector <yaml.file.field>==<value>``` | In get statement, return only the objects that match with the field
+|``` -l <label-name>==<label-value>``` | In get statement, return only the objects that have the label
+|``` --all-namespaces, -A``` |  list all kubernetes resources in all namespaces
 
 ## Cluster 
 
@@ -121,11 +118,22 @@
 | --- | --- |
 |```kubectl get deployment``` |
 
-### Services
+### Services, Port-Forwards and Ingress
 
 | Command | Description |
 | --- | --- |
 |```kubectl get services -A``` | see all services in all namespaces
+|```kubectl describe svc``` | list configuration info and events for all services in the default namespace
+|```kubectl create svc nodeport nodeport-svc --tcp=8080:80``` | create nodePort type service 'nodeport-svc' in default namespace, exposing port 8080 from the container port 80
+|```kubectl expose deploy nginx --name=app-service --port=80 --type=NodePort``` | create a nodePort service 'app-service' from exposing deployment 'nginx'
+|```kubectl expose deploy nginx --port 80 --target-port 80 --type LoadBalancer``` | create a load balancer type service named 'nginx' from a deployment
+|```kubectl expose svc nginx --name nginx-https --port 443 --target-port 8443``` | Create a second service based on the above service, exposing the container port 8443 as port 443 with the name "nginx-https"
+|```kubectl create ingress cool-ing --rule="mycoolwebapp.com/forums=forums-svc:8080,tls=my-cert"``` | Create an ingress named 'cool-ing' that takes requests to mycoolwebapp.com/forums to our service named forums-svc on port 8080 with a tls secret "my-cert"
+|```kubectl create ingress one-ing --rule="/path=myweb-svc:80"``` | Create an ingress named 'one-ing' that takes all requests to a service named 'myweb-svc' on port 80
+|```kubectl port-forward xxx 8080:80``` |
+|```kubectl expose --port=<port-number> --target-port=<port-number <container-name> ``` | Expose a resource as a new Kubernetes service.
+
+
 
 ### Events
 
@@ -140,20 +148,29 @@
 |```kubectl get ingress -A``` | see all ingresses in all namespaces
 |```kubectl get ingress mymicroservice -o yaml``` | see a resource definition
 
+### Labels and Annotations
+| Command | Description |
+| --- | --- |
+kubectl label no mynode1 disk=ssd | label node 'mynode1` with key 'disk' and value 'ssd'
+kubectl get no --show-labels | show labels for nodes in a cluster
+kubectl annotate no mynode1 azure=node | annotate node 'mynode1' with key 'azure', and value 'node'
+
 ## Actions
 ### Scale
 | Command | Description |
 | --- | --- |
 |```kubectl scale deployments/<container-name> --replicas=<expected-number-of-replicas> ``` |  to scale the deployment to expected number of replicas
 
-### Port forwarding
-| Command | Description |
-| --- | --- |
-|```kubectl port-forward xxx 8080:80``` |
-|```kubectl expose --port=<port-number> --target-port=<port-number <container-name> ``` | Expose a resource as a new Kubernetes service.
-
 ### Proxy
 | Command | Description |
 | --- | --- |
 |```kubectl proxy```|  runs a proxy to the Kubernetes API Server
+
+## Volumes
+| Command | Description |
+| --- | --- |
+sc | Storage Classe
+pv | Persistent Volumes
+pvc | Persistent Volume Claims
+volumeattachments | view the volumes attached to nodes (non-namespaced)
 
