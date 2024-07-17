@@ -4,6 +4,8 @@
 
 ## Docker CLI
 
+| Command | Description |
+| --- | --- |
 ```docker login -u "<user>" docker.io``` | 
 ```docker build -t <user>/<repository>:<tag> .``` |
 ```docker push <user>/<repository>:<tag>``` |
@@ -12,6 +14,8 @@
 
 ### Parâmetros docker run
 
+| Command | Description |
+| --- | --- |
 --rm | apaga o container após a execução
 --it | modo interativo, executando o --entrypoint
 --name <container> | nome da instância
