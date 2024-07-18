@@ -111,9 +111,11 @@
 | Command | Description |
 | --- | --- |
 |```kubectl get secrets -A``` | see all secrets in all namespaces
-|```kubectl create secret generic db-user-pass \
-    --from-literal=username=admin \
-    --from-literal=password='S!B\*d$zDsb='``` | reate the Secret by passing the raw data 
+|```kubectl describe secret <name> ``` |
+|```kubectl create secret generic <name> --from-literal=<key1>=<value1> --from-literal=<key2>=<value2>``` | reate the Secret by passing the raw data 
+|```kubectl create secret generic <name> --from-file=<key1>=./file1.txt -from-file=<key2>=./file2.txt``` | reate the Secret by passing files 
+|```kubectl edit secrets <name>``` |
+|```kubectl delete secret <name>``` |
 
 ### CronJobs (cj)
 
@@ -125,6 +127,7 @@
 |```kubectl delete cronjob my-cron``` | delete a CronJob
 
 ### ConfigMap
+- A ConfigMap is an object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. ConfigMaps allows you to decouple environment-specific configuration from your container images, so that your applications are easily portable.
 
 ### Deployments
 
