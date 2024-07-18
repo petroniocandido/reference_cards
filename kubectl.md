@@ -81,8 +81,7 @@
 - *Jobs*:  creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions.
 - *CronJob*:  creates Jobs on a repeating schedule. One CronJob object is like one line of a crontab (cron table) file on a Unix system. It runs a Job periodically on a given schedule, written in Cron format.
 - *ReplicationController*: ensures that a specified number of pod replicas are running at any one time. In other words, a ReplicationController makes sure that a pod or a homogeneous set of pods is always up and available.
-- *Jobs*:
-- *Jobs*:
+
 
 | Command | Description |
 | --- | --- |
@@ -108,10 +107,11 @@
 
 ### Secrets
 - A Secret object stores sensitive data such as credentials used by Pods to access services. For example, you might need a Secret to store the username and password needed to access a database.
+  
 | Command | Description |
 | --- | --- |
 |```kubectl get secrets -A``` | see all secrets in all namespaces
-```kubectl create secret generic db-user-pass \
+|```kubectl create secret generic db-user-pass \
     --from-literal=username=admin \
     --from-literal=password='S!B\*d$zDsb='``` | reate the Secret by passing the raw data 
 
