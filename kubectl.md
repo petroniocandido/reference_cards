@@ -72,7 +72,17 @@
 |```kubectl get namespaces``` | list all namespaces
 |```kubectl create ns <name>``` | create a new namespace
 
-### Pods
+## Workloads
+- *Pod*: is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
+- *Deployment*: provides declarative updates for Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate.
+- *ReplicaSet*: maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+- *StatefulSets*:  manage stateful applications. Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods. Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of its Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.
+- *DaemonSet*:  ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. 
+- *Jobs*:  creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions.
+- *CronJob*:  creates Jobs on a repeating schedule. One CronJob object is like one line of a crontab (cron table) file on a Unix system. It runs a Job periodically on a given schedule, written in Cron format.
+- *ReplicationController*: ensures that a specified number of pod replicas are running at any one time. In other words, a ReplicationController makes sure that a pod or a homogeneous set of pods is always up and available.
+- *Jobs*:
+- *Jobs*:
 
 | Command | Description |
 | --- | --- |
@@ -97,9 +107,13 @@
 |```kubectl get ServiceAccount -A``` | see all service accounts in all namespaces
 
 ### Secrets
+- A Secret object stores sensitive data such as credentials used by Pods to access services. For example, you might need a Secret to store the username and password needed to access a database.
 | Command | Description |
 | --- | --- |
 |```kubectl get secrets -A``` | see all secrets in all namespaces
+```kubectl create secret generic db-user-pass \
+    --from-literal=username=admin \
+    --from-literal=password='S!B\*d$zDsb='``` | reate the Secret by passing the raw data 
 
 ### CronJobs (cj)
 
@@ -119,7 +133,14 @@
 |```kubectl get deployment``` |
 
 ### Services, Port-Forwards and Ingress
+- *Service*: is a method for exposing a network application that is running as one or more Pods in your cluster. A Service can map any incoming port to a targetPort. By default and for convenience, the targetPort is set to the same value as the port field.
+  - *ClusterIP*: Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. You can expose the Service to the public internet using an Ingress 
+  - *NodePort*: Exposes the Service on each Node's IP at a static port
+  - *LoadBalancer*: Exposes the Service externally using an external load balancer. Kubernetes does not directly offer a load balancing component; you must provide one
+  - *ExternalName*: Maps the Service to the contents of the externalName field (for example, to the hostname api.foo.bar.example). The mapping configures your cluster's DNS server to return a CNAME record with that external hostname value. No proxying of any kind is set up.
+- *Ingress*:  Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. Ingress may provide load balancing, SSL termination and name-based virtual hosting.
 
+- 
 | Command | Description |
 | --- | --- |
 |```kubectl get services -A``` | see all services in all namespaces
