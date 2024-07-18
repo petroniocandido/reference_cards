@@ -4,14 +4,16 @@
 
 ## Docker CLI
 
-### Docker Hub
+### Docker Hub & Local Private Registry
 | Command | Description |
 | --- | --- |
 ```docker login -u "<user>" docker.io``` | Faz o login em um registro
 ```docker logout ``` | Faz o logout em um registro
 ```docker push <user>/<repository>:<tag>``` | Envia ou leva uma imagem a um registry (push)
+```docker push <ip:port>/<imagename>:<tag>``` |
 ```docker pull <user>/<repository>:<tag>``` | Traz ou busca uma imagem de um registro (pull)
 ```docker search <term>``` |	Faz uma pesquisa no Docker Hub em busca de imagens com o termo especificado (term)
+
 
 ### Containers
 | Command | Description |
@@ -45,12 +47,15 @@
 | Command | Description |
 | --- | --- |
 ```docker image ls```	| Lista imagens
-```docker image rm``` | image	Remove uma imagem
+```docker image rm <name>``` | image	Remove uma imagem
 ```docker image rm mysql```	| Remove uma imagem
-```docker tag image tag```	| Rotula uma imagem (insere tag)
+```docker tag image <tag>```	| Rotula uma imagem (insere tag)
 ```docker history image```	| Exibe o histórico de uma imagem
 ```docker image prune```	| Remove uma imagem que não está sendo utilizada
 ```docker image prune -a```	| Remove todas as imagens que não estão sendo usadas por containers
+```docker save myimage:latest > myimage.tar.gz```| Export/Save image in tar file
+```docker image load -i image.tar.gz``` | Load an imagem from tar file
+
 
 
 ### Parâmetros docker run
@@ -93,4 +98,9 @@
 
 ## Local Registry
 
-
+- Start a new local registry:
+- Import an image from .tar file
+- Tag the image in the new repository
+  ```docker tag <image-id> <ip:5000>/<imagename>```
+- Push the image
+```docker push <ip:5000>/<imagename>```
