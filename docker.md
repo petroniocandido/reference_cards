@@ -99,8 +99,25 @@
 ## Local Registry
 
 - Start a new local registry:
+```
+docker run -d -p 5000:5000 --name local-registry registry:2
+```
+
+- Edit ```/etc/docker/daemon.json``` in the client docker machines to allow unsafe communication
+```
+"insecure-registries":["192.168.99.100:5000"]
+```
+
 - Import an image from .tar file
+```
+docker image load -i image.tar.gz
+```
+
 - Tag the image in the new repository
-  ```docker tag <image-id> <ip:5000>/<imagename>```
+  ```
+  docker tag <image-id> <ip:5000>/<imagename>
+  ```
 - Push the image
-```docker push <ip:5000>/<imagename>```
+```
+docker push <ip:5000>/<imagename>
+```
