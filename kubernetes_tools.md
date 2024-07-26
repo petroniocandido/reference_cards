@@ -2,7 +2,7 @@
 
 - https://collabnix.github.io/kubetools/
 
-## Distributions
+## k8s Distributions
 - [k0s](https://k0sproject.io/) - Zero Friction Kubernetes. k0s is an all-inclusive Kubernetes distribution, which is configured with all of the features needed to build a Kubernetes cluster and packaged as a single binary for ease of use.
 - [k3s](https://k3s.io/) - Lightweight Kubernetes. 
 - [k8s](https://kubernetes.io/)
@@ -16,3 +16,5 @@
 - [k9s](https://k9scli.io/) - Shell CLI
 - Portainer
 - 
+## Linux 
+- [Talos Linux](https://www.talos.dev/) - A modern OS for Kubernetes.
