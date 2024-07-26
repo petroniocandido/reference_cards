@@ -26,7 +26,7 @@
 ### Containers
 | Command | Description |
 | --- | --- |
-```docker build -t <user>/<repository>:<tag> .``` | Constrói uma imagem a partir de um Dockerfile (arquivo Docker) no diretório atual 
+```docker build --no-cache -t <user>/<repository>:<tag> .``` | Constrói uma imagem a partir de um Dockerfile (arquivo Docker) no diretório atual 
 ```docker run --rm -it --name=<container> --entrypoint=<command> <user>/<repository>:<tag>```|
 ```docker rm container```	| Remove um container que está rodando
 ```docker start container```	| Inicia um novo container
