@@ -108,7 +108,7 @@
 
 - Start a new local registry:
 ```
-docker run -d -p 5000:5000 --name local-registry registry:2
+docker run -d --restart=always --name registry -p 5000:5000 registry:2
 ```
 
 - Edit ```/etc/docker/daemon.json``` in the client docker machines to allow unsafe communication
