@@ -39,16 +39,17 @@
 ```docker attach container```	| Anexa conteúdo a um container que já está rodando (running container)
 ```docker wait container```	| Coloca processo em aguardo até que o container esteja terminado e enem exibe o exit code (código de saída)
 ```docker commit -m “commit message” -a “author” container username/image_name:tag```	| Salva um container que está rodando em formato de imagem
-```docker logs -ft container```	| Acompanha logs de um container (registros)
-```docker exec -ti container script.sh```	| Roda um comando em um container
-```docker commit container image```	| Cria uma nova imagem a partir de um container
-```docker create image```	| Cria um novo container a partir de uma imagem
+```docker logs -ft <container>```	| Acompanha logs de um container (registros)
+```docker exec -it <container> <comando>```	| Roda um comando em um container
+```docker commit <container> <image>```	| Cria uma nova imagem a partir de um container
+```docker create <image>```	| Cria um novo container a partir de uma imagem
 ```docker ps```	| Lista todos os containers que estão rodando (running containers)
 ```docker ps -a```	| Lista todos os containers
 ```docker diff container```	| Inspeciona alterações em diretórios e arquivos do sistema de arquivos do container
 ```docker top container```	| Exibe todos os processos que estão rodando em um container ativo
 ```docker logs container```	| Reúne os registros (logs) de um container
 ```docker stats container``` | Exibe as estatísticas de consumo de recursos de um container 
+```docker cp <container>:/file/path/within/container /host/path/target``` | 
 
 ### Images
 
