@@ -104,6 +104,13 @@
 ```docker network disconnect networkname container```	| Desconecta um container de uma rede
 ```docker network inspect networkname```	| Exibe informações detalhadas sobre a rede (network)
 
+### Volumes
+| Command | Description |
+| --- | --- |
+```docker volume ls```	|
+```docker volume create <volume>```	|
+```docker volume inspect <volume>```	|
+```docker volume rm <volume>```	|
 
 ## Local Registry
 
