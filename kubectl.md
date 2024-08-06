@@ -55,14 +55,18 @@
 |```kubectl create -f <filename>``` | create resources from a manifest file
 |```kubectl create <object-type> [<sub-type>] <instance-name>``` | 
 |```kubectl update -f <filename>``` | create or update resources from a manifest file
-|```kubectl replace -f <filename|url>``` | 
+|```kubectl replace -f <filename>``` | replace resources from a manifest file
 |```kubectl delete -f <filename>``` | delete resources from a manifest file
-|```kubectl edit``` |  Directly edit the raw configuration of a live object by opening its configuration in an editor.
+|```kubectl edit <object> -o yaml --save-config ``` |  Directly edit the raw configuration of a live object by opening its configuration in an editor.
 |```kubectl apply -f <filename>``` | 
-|```kubectl diff -f <filename>``` | 
-|```kubectl patch ``` | Directly modify specific fields of a live object by using a patch string. 
-|```kubectl set``` | Set an aspect of an object.
-|```kubectl explain pods``` |
+|```kubectl diff -f <filename>``` | Diff configurations specified by file between the current online configuration, and the configuration as it would be if applied.
+|```kubectl patch <object>  -p '{"spec":{"unschedulable":true}}' ``` | Directly modify specific fields of a live object by using a patch string. 
+|```kubectl explain pods``` | Describe fields and structure of various resources.
+|```kubectl set env <object> <var>=<val>``` | Update environment variables on a pod template.
+|```kubectl set env <object> <container>=<image>``` | Update existing container image(s) of resources.
+|```kubectl set resources <object> --limits=cpu=200m,memory=512Mi --requests=cpu=100m,memory=256Mi``` | Specify compute resource requirements (CPU, memory) for any resource 
+|```kubectl set env <object> <var>=<val>``` | Update environment variables on a pod template.
+
 
 ## Objects
 ### Namespaces (ns)
