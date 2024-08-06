@@ -184,9 +184,10 @@ kubectl get no --show-labels | show labels for nodes in a cluster
 kubectl annotate no mynode1 azure=node | annotate node 'mynode1' with key 'azure', and value 'node'
 
 ## Actions
-### Scale
 | Command | Description |
 | --- | --- |
+|```kubectl expose <object> --port=<internal-port> --target-port=<external-port> --cluster-ip <ip> --name <name> --protocal <tcp/udp> ``` |  Expose a resource as a new Kubernetes service.
+|```kubectl port-forward <object> <local-port>:<pod-port> ```| Forward one or more local ports to a pod.
 |```kubectl scale deployments/<container-name> --replicas=<expected-number-of-replicas> ``` |  to scale the deployment to expected number of replicas
 
 ### Proxy
