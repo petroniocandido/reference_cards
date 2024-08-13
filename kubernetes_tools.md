@@ -15,6 +15,6 @@
 - Helm
 - [k9s](https://k9scli.io/) - Shell CLI
 - Portainer
-- 
+- [kubeTUI](https://github.com/sarub0b0/kubetui)
 ## Linux 
 - [Talos Linux](https://www.talos.dev/) - A modern OS for Kubernetes.
