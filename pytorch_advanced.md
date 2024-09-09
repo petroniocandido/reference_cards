@@ -5,8 +5,9 @@ Method | Calculus| Description |
 | --- | --- |--- |
 ```addr(B, v1, v2, *, beta=1, alpha=1)``` | $O = \alpha (v_1 \otimes v_2) + \beta B$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$ and adds it to the matrix $B \in \mathbb{R}^{n \times m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
 ```cdist(v1, v2, p=2.0)``` | $D = \Vert v_1 - v_2\Vert_p$  | batched the p-norm distance between each pair of the two collections of row vectors $v_1 \in \mathbb{R}^{b \times p \times n}$, with $p$ vectors of size $m$ and $v_2 \in \mathbb{R}^{b \times q \times n}$ with $q$ vectors of size $n$, resulting in a batched matrix of distances Returns $D \in \mathbb{R}^{b \times p \times q}$.
-```inner(v1, v2)``` | $a = v_1 \times v_2$ | Dot product for 1D tensors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{n}$.  Returns $a \in \mathbb{R}$.
-```outer(v1, v2)``` | $O = v_1 \otimes v_2$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+```inner(v1, v2)``` | $a = v_1 \cdot v_2$ = \sum_{i=1}^n v_{1i} \cdot v_{2i}  | Dot product for 1D tensors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{n}$.  Returns $a \in \mathbb{R}$.
+```outer(v1, v2)``` | $O = v_1 \otimes v_2 \rightarrow O_{ij} = v_{1i} \cdot v_{2j}$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+```cross(v1, v2)``` | $v = v_1 \times v_2 = \Vert v_1\Vert \cdot \Vert v_2 \Vert sin(\theta) n$ | Batched Cross-product of vectors $v_1 \in \mathbb{R}^{b \times n}$ and $v_2 \in \mathbb{R}^{b \times n}$.  Returns $v \in \mathbb{R}^{b \times n}$.
 
 
 ### Vector-Matrix
