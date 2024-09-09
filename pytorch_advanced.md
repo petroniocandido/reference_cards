@@ -1,11 +1,10 @@
 # Advanced PyTorch
 
-## BLAS and LAPACK Operations
-
 ### Vector-Vector
 Method | Calculus| Description |
 | --- | --- |--- |
 ```addr(B, v1, v2, *, beta=1, alpha=1)``` | $O = \alpha (v_1 \otimes v_2) + \beta B$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$ and adds it to the matrix $B \in \mathbb{R}^{n \times m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+```cdist(v1, v2, p=2.0)``` | $D = \|v_1 - v_2\|_p$  | batched the p-norm distance between each pair of the two collections of row vectors $v_1 \in \mathbb{R}^{b \times p \timesa n}$, with $p$ vectors of size $m$ and $v_2 \in \mathbb{R}^{b \times q \times n}$ with $q$ vectors of size $n$, resulting in a batched matrix of distances Returns $D \in \mathbb{R}^{b \times p \times q}$.
 ```inner(v1, v2)``` | $a = v_1 \times v_2$ | Dot product for 1D tensors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{n}$.  Returns $a \in \mathbb{R}$.
 ```outer(v1, v2)``` | $O = v_1 \otimes v_2$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
 
