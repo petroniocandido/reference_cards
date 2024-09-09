@@ -1,5 +1,7 @@
 # Advanced PyTorch
 
+## Math
+
 ### Vector-Vector
 Method | Calculus| Description |
 | --- | --- |--- |
@@ -17,6 +19,7 @@ Method | Calculus| Description |
 ```mv(M, v)``` | $o = M \times v$ |  Non-batched matrix multiplication of the matrix $M \in \mathbb{R}^{n \times m}$ and the vector $v \in \mathbb{R}^{m}$. Returns $o \in \mathbb{R}^{n}$.
 
 ### Matrix-Matrix
+- GEMM - General Matrix Multiplication: $C \leftarrow \alpha AB + \beta C$
 Method | Calculus| Description |
 | --- | --- |--- |
 ```addmm(b, M1, M2, *, beta=1, alpha=1)``` | $o = \alpha (M_1 \times M_2) + \beta b$ |Matrix-matrix product of matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n \times p}$. Returns $o \in \mathbb{R}^{n \times p}$.
@@ -25,3 +28,14 @@ Method | Calculus| Description |
 ```bmm(M1, M2)``` | $O = M_1 \times M_2$ |  Batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{b \times n \times m}$ and $M_2 \in \mathbb{R}^{b \times m \times p}$. Returns $O \in \mathbb{R}^{b \times n \times p}$.
 ```mm(M1, M2)``` | $O = M_1 \times M_2$ |  Non-batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
 ```chain_matmul(M1, ..., Mn)``` | $O = \prod_{i=1}^{n} M_i$ | The matrix product of the n 2D matrices $M_i \in \mathbb{R}^{a \times b}$. Returns $O \in \mathbb{R}^{a \times b}$.
+
+## Distributed
+- The torch.distributed package provides PyTorch support and communication primitives for multiprocess parallelism across several computation nodes running on one or more machines. 
+### Backends
+| Backend | Support | Use |
+| --- | --- |--- |
+| Gloo | Native | Distributed CPU training |
+| NCCL | Native | Distributed GPU training |
+| MPI | Non Native | Specific reasons |
+
+### Initialization
