@@ -2,9 +2,20 @@
 
 ## BLAS and LAPACK Operations
 
+### Vector-Vector
+Method | Calculus| Description |
+| --- | --- |--- |
+```addr(B, v1, v2, *, beta=1, alpha=1)``` | $O = \alpha (v_1 \otimes v_2) + \beta B$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$ and adds it to the matrix $B \in \mathbb{R}^{n \times m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+
+### Vector-Matrix
+Method | Calculus| Description |
+| --- | --- |--- |
+```addmv(b, M, v, *, beta=1, alpha=1)``` | $o = \alpha (M \times v) + \beta b$ | matrix-vector product of the matrix $M \in \mathbb{R}^{n \times m}$ and vector $v \in \mathbb{R}^{m}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n}$.  Returns $o \in \mathbb{R}^{n}$.
+```mv(M, v)``` | $o = M \times v$ |  Non-batched matrix multiplication of the matrix $M \in \mathbb{R}^{n \times m}$ and the vector $v \in \mathbb{R}^{m}$. Returns $o \in \mathbb{R}^{n}$.
+
+### Matrix-Matrix
 Method | Calculus| Description |
 | --- | --- |--- |
 ```addmm(b, M1, M2, *, beta=1, alpha=1)``` | $o = \alpha (M_1 \times M_2) + \beta b$ |Matrix-matrix product of matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n \times p}$. Returns $o \in \mathbb{R}^{n \times p}$.
-```addbmm(b, M1, M2, *, beta=1, alpha=1)``` | $o = \alpha (\sum_{b=0}^{b-1} M_1 \times M_2)  + \beta b$ |Batch matrix-matrix product of matrices $M_1 \in \mathbb{R}^{b\times n \times m}$ and $M_2 \in \mathbb{R}^{b\times m \times p}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n \times p}$. Returns $o \in \mathbb{R}^{n \times p}$.
-```addmv(b, M, v, *, beta=1, alpha=1)``` | $o = \alpha (M \times v) + \beta b$ | matrix-vector product of the matrix $M \in \mathbb{R}^{n \times m}$ and vector $v \in \mathbb{R}^{m}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n}$.  Returns $o \in \mathbb{R}^{n}$.
-```addr(B, v1, v2, *, beta=1, alpha=1)``` | $o = \alpha (v_1 \otimes v_2) + \beta B$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$ and adds it to the matrix $B \in \mathbb{R}^{n \times m}$.  Returns $o \in \mathbb{R}^{n \times m}$.
+```addbmm(B, M1, M2, *, beta=1, alpha=1)``` | $O = \alpha (\sum_{b=0}^{b-1} M_1 \times M_2)  + \beta B$ |Batch matrix-matrix product of matrices $M_1 \in \mathbb{R}^{b\times n \times m}$ and $M_2 \in \mathbb{R}^{b\times m \times p}$, with a sum-reduce step, added with $B \in \mathbb{R}^{n \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
+```mm(M1, M2)``` | $O = M_1 \times M_2$ |  Non-batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
