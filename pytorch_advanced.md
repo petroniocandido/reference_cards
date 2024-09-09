@@ -20,6 +20,7 @@ Method | Calculus| Description |
 
 ### Matrix-Matrix
 - GEMM - General Matrix Multiplication: $C \leftarrow \alpha AB + \beta C$
+  
 Method | Calculus| Description |
 | --- | --- |--- |
 ```addmm(b, M1, M2, *, beta=1, alpha=1)``` | $o = \alpha (M_1 \times M_2) + \beta b$ |Matrix-matrix product of matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n \times p}$. Returns $o \in \mathbb{R}^{n \times p}$.
