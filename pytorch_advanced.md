@@ -6,6 +6,9 @@
 Method | Calculus| Description |
 | --- | --- |--- |
 ```addr(B, v1, v2, *, beta=1, alpha=1)``` | $O = \alpha (v_1 \otimes v_2) + \beta B$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$ and adds it to the matrix $B \in \mathbb{R}^{n \times m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+```inner(v1, v2)``` | $a = v_1 \times v_2$ | Dot product for 1D tensors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{n}$.  Returns $a \in \mathbb{R}$.
+```outer(v1, v2)``` | $O = v_1 \otimes v_2$ | Outer-product of vectors $v_1 \in \mathbb{R}^{n}$ and $v_2 \in \mathbb{R}^{m}$.  Returns $O \in \mathbb{R}^{n \times m}$.
+
 
 ### Vector-Matrix
 Method | Calculus| Description |
@@ -18,4 +21,6 @@ Method | Calculus| Description |
 | --- | --- |--- |
 ```addmm(b, M1, M2, *, beta=1, alpha=1)``` | $o = \alpha (M_1 \times M_2) + \beta b$ |Matrix-matrix product of matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$, with a sum-reduce step, added with $v \in \mathbb{R}^{n \times p}$. Returns $o \in \mathbb{R}^{n \times p}$.
 ```addbmm(B, M1, M2, *, beta=1, alpha=1)``` | $O = \alpha (\sum_{b=0}^{b-1} M_1 \times M_2)  + \beta B$ |Batch matrix-matrix product of matrices $M_1 \in \mathbb{R}^{b\times n \times m}$ and $M_2 \in \mathbb{R}^{b\times m \times p}$, with a sum-reduce step, added with $B \in \mathbb{R}^{n \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
+```baddbmm(B, M1, M2, *, beta=1, alpha=1)``` | $O = \alpha (\sum_{b=0}^{b-1} M_1 \times M_2)  + \beta B$ |Batch matrix-matrix product of matrices $M_1 \in \mathbb{R}^{b\times n \times m}$ and $M_2 \in \mathbb{R}^{b\times m \times p}$, with a sum-reduce step, added with $B \in \mathbb{R}^{b \times n \times p}$. Returns $O \in \mathbb{R}^{b \times n \times p}$.
+```bmm(M1, M2)``` | $O = M_1 \times M_2$ |  Batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{b \times n \times m}$ and $M_2 \in \mathbb{R}^{b \times m \times p}$. Returns $O \in \mathbb{R}^{b \times n \times p}$.
 ```mm(M1, M2)``` | $O = M_1 \times M_2$ |  Non-batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
