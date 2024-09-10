@@ -30,6 +30,15 @@ Method | Calculus| Description |
 ```mm(M1, M2)``` | $O = M_1 \times M_2$ |  Non-batched matrix multiplication of the matrices $M_1 \in \mathbb{R}^{n \times m}$ and $M_2 \in \mathbb{R}^{m \times p}$. Returns $O \in \mathbb{R}^{n \times p}$.
 ```chain_matmul(M1, ..., Mn)``` | $O = \prod_{i=1}^{n} M_i$ | The matrix product of the n 2D matrices $M_i \in \mathbb{R}^{a \times b}$. Returns $O \in \mathbb{R}^{a \times b}$.
 
+### Linear Algebra
+- GELS - Generalized Linear Squares
+
+
+Method | Calculus| Description |
+| --- | --- |--- |
+```linalg.lstsq(A, B)```| $X = \min |AX - B|_F$ | Computes a solution to the least squares problem of a system of linear equations where $A \in \mathbb{R}^{b \times m \times n}$ and  $B \in \mathbb{R}^{b \times m \times k}$, returning (solution, residuals, rank, singular_values).
+
+
 ## Distributed
 - The torch.distributed package provides PyTorch support and communication primitives for multiprocess parallelism across several computation nodes running on one or more machines. 
 ### Backends
