@@ -179,9 +179,9 @@
 ### Labels and Annotations
 | Command | Description |
 | --- | --- |
-kubectl label no mynode1 disk=ssd | label node 'mynode1` with key 'disk' and value 'ssd'
-kubectl get no --show-labels | show labels for nodes in a cluster
-kubectl annotate no mynode1 azure=node | annotate node 'mynode1' with key 'azure', and value 'node'
+|```kubectl label node <node> <label>=<value>``` | label node <node> with key <label>, and value <value> 
+|```kubectl get no --show-labels``` | show labels for nodes in a cluster
+|```kubectl annotate node <node> <label>=<value>``` | annotate node <node> with key <label>, and value <value> 
 
 ## Actions
 | Command | Description |
