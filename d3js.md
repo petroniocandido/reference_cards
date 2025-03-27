@@ -103,3 +103,28 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 | click  | selection got clicked  |
 | mouseover  | mouse pointer moves over a selection  |
 | mouseout  | mouse pointer leaves a slection  |
+
+## SVG Elements
+| Element   |      Usage      |  Example |  
+|---|---|---|
+|`<a>`| creates a hyperlink to other web pages, files, locations in the same page, email addresses, or any other URL..|` `|
+|`<g>`| a container used to group other SVG elements, and its attributes are inherited by its children.|` `|
+|`<circle>`| draw circles based on a center point and a radius.|` <circle cx="50" cy="50" r="50" />`|
+|`<ellipse>`|  create ellipses based on a center coordinate, and both their x and y radius.|` <ellipse cx="100" cy="50" rx="100" ry="50" />`|
+|`<line>`|  create a line connecting two points.|` line x1="0" y1="80" x2="100" y2="20" stroke="black" />`|
+|`<polygon>`|  defines a closed shape consisting of a set of connected straight line segments. The last point is connected to the first point.|`<polygon points="100,100 150,25 150,75 200,0" fill="none" stroke="black" /> `|
+|`<rect>`|  draws rectangles, defined by their position, width, and height. The rectangles may have their corners rounded.|` <rect x="120" width="100" height="100" rx="15" />`|
+|`<text>`|  draws a graphics element consisting of text.|`<text x="65" y="55" class="Rrrrr">Grumpy!</text> `|
+|`<polyline>`| creates straight lines connecting several points.|`<polyline points="100,100 150,25 150,75 200,0" fill="none" stroke="black" /> `|
+
+
+## SVG Atributes
+| Attribute   |      Usage      |  Example |  
+|---|---|---|
+|`transform`| defines a list of transform definitions that are applied to an element and the element's children.|` matrix(a,b,c,d,e,f), translate(<x> [<y>]), scale(<x> [<y>]), rotate(<a> [<x> <y>])`|
+|`fill`|  the color used to paint the element.|` `|
+|`r`| defines the radius of a circle.|` `|
+|`rx`| defines a radius on the x-axis.|` `|
+|`ry`| defines a radius on the y-axis.|` `|
+|``| .|` `|
+
