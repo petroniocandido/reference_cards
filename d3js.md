@@ -123,8 +123,12 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 |---|---|---|
 |`transform`| defines a list of transform definitions that are applied to an element and the element's children.|` matrix(a,b,c,d,e,f), translate(<x> [<y>]), scale(<x> [<y>]), rotate(<a> [<x> <y>])`|
 |`fill`|  the color used to paint the element.|` `|
+|`cx`| defines the x-axis coordinate of a center point.|` `|
+|`cy`| defines the y-axis coordinate of a center point.|` `|
 |`r`| defines the radius of a circle.|` `|
 |`rx`| defines a radius on the x-axis.|` `|
 |`ry`| defines a radius on the y-axis.|` `|
-|``| .|` `|
+|`x, x1, x2`| defines the x-axis coordinate of an object, or the x-coordinates of objects that require more than one point.|` `|
+|`y, y1, y2`| defines the x-axis coordinate of an object, or the x-coordinates of objects that require more than one point.|` `|
+|`points`| defines a list of points. Each point is defined by a pair of number representing a X and a Y coordinate in the user coordinate system.|` `|
 
