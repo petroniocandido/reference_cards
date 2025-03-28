@@ -3,6 +3,7 @@
 ## Selecting elements and changing properties
 - https://d3js.org/d3-selection/selecting
 - https://d3js.org/d3-selection/modifying
+- 
 | Method   |      Usage      |  Example |  
 |---|---|---|
 | `.select("selector")` |  elect the first element that matches in the DOM (from top to bottom) | `d3.select("p")` | 
@@ -21,6 +22,7 @@
 ## Working with data
 - https://d3js.org/d3-selection/joining
 - https://d3js.org/d3-selection/control-flow
+- 
 | Method   |      Usage      |  Example |  
 |---|---|---|
 | `.data(json)`  | join the specified data to the selected element(s) | `d3.selectAll(".d3_fruit").data(fruits).text((d) => d)` |
