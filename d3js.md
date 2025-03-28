@@ -1,7 +1,8 @@
 # D3JS
 
 ## Selecting elements and changing properties
-
+- https://d3js.org/d3-selection/selecting
+- https://d3js.org/d3-selection/modifying
 | Method   |      Usage      |  Example |  
 |---|---|---|
 | `.select("selector")` |  elect the first element that matches in the DOM (from top to bottom) | `d3.select("p")` | 
@@ -18,7 +19,8 @@
 
 
 ## Working with data
-
+- https://d3js.org/d3-selection/joining
+- https://d3js.org/d3-selection/control-flow
 | Method   |      Usage      |  Example |  
 |---|---|---|
 | `.data(json)`  | join the specified data to the selected element(s) | `d3.selectAll(".d3_fruit").data(fruits).text((d) => d)` |
@@ -30,7 +32,7 @@
 | `.text("path/to/file.txt")`  |  Read a txt file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
 
 ## Scales
-
+- https://d3js.org/d3-scale
 - The `d3.scale` function converts the input data raw values into visual values as pixels.
 - `d3.scale` needs to be set with a domain and a range. The domain sets a LIMIT for the data we are trying to represent visually.
 
@@ -79,9 +81,8 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 
 ```
 
-
 ## Axis
-
+- https://d3js.org/d3-axis
 - The axis component renders human-readable reference marks for scales.
 -  you only need to pass an existing d3.scale and then append it to a SVG
 -  
@@ -94,6 +95,7 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 
 
 ## Event Handling
+- https://d3js.org/d3-selection/events
 -  add or remove event handlers to or from selected document elements
 -  `.on("event",function)`
 
@@ -103,6 +105,12 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 | click  | selection got clicked  |
 | mouseover  | mouse pointer moves over a selection  |
 | mouseout  | mouse pointer leaves a slection  |
+
+## Formatting Numbers and Time
+
+- `d3.format("format")` customize number formatting. Ex: `const formatter = d3.format(".1f"); console.print(formatter(0.1 ))`
+- https://d3js.org/d3-format
+- https://d3js.org/d3-time-format
 
 ## SVG Elements
 | Element   |      Usage      |  Example |  
