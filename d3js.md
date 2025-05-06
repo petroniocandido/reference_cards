@@ -44,7 +44,7 @@
 | `.clamp(true | false)`  | If the scale will accept values outside the domain. If not, the values are clipped. | `d3.` |
 | `.ticks(count)`  | Returns approximately count representative values from the scale’s domain. | `d3.` |
 | `.tickFormat(count, specifier) `  | Returns a number format function suitable for displaying a tick value. | `d3.` |
-| `.clamp(true | false)`  | If the scale will accept values outside the domain. If not, the values are clipped. | `d3.` |
+| `.clamp(true \ false)`  | If the scale will accept values outside the domain. If not, the values are clipped. | `d3.` |
 
 ```
 const width = 960, height = 500;
@@ -91,6 +91,8 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 | `.axisLeft(scale)`  | Top axis | `let bottom_axis = d3.axisBottom(scale); svg.append("g").call(bottom_axis); |
 | `.axisRight(scale)`  | Top axis | `let bottom_axis = d3.axisBottom(scale); svg.append("g").call(bottom_axis); |
 
+```
+```
 
 ## Working with data
 - https://d3js.org/d3-selection/joining
