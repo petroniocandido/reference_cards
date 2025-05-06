@@ -37,7 +37,6 @@
 | `.scaleBand(domain, range)`  | Map intervals of domain to points in range. For working with bar charts | `x_scale = d3.scaleBand().range([0, width]); x_scale.domain(data.map((d) => d.Name);` |
 | `.scalePoint(domain, range)`  | Map discrete points of domain to points in range | `const x = d3.scalePoint(["a", "b", "c"], [0, 960]);` |
 | `.scale()`  | General use scales | `d3.` |
-
 | `.domain([min, max])`  | Range of visual display, in pixels | `d3.` |
 | `.range([min, max])`  | Range of raw data | `d3.` |
 | `scale_object(value) `  | Converts a value from the domain to a range value | `d3.` |
