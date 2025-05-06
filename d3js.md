@@ -18,37 +18,34 @@
 | `.insert()`  | Works the same as the `.append()` method, except you can specify another element to insert before |    `d3.select("div").insert("p", "h1")` |
 | `.remove()`  | Removes selected element from the DOM  | `d3.select("div").remove("p")` |
 
-
-## Working with data
-- https://d3js.org/d3-selection/joining
-- https://d3js.org/d3-selection/control-flow
-- 
-| Method   |      Usage      |  Example |  
-|---|---|---|
-| `.data(json)`  | join the specified data to the selected element(s) | `d3.selectAll(".d3_fruit").data(fruits).text((d) => d)` |
-| `.join("element")`  |  appends, removes, and reorders elements as necessary to match the specified data. | `d3.selectAll("p").data(fruits).join("p").attr("class", "d3_fruit").text((d) => d)` |
-| `.json("path/to/file.json")`  |  Read a json file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
-| `.csv("path/to/file.csv")`  |  Read a csv file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
-| `.xml("path/to/file.xml")`  |  Read a xml file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
-| `.tsv("path/to/file.tsv")`  |  Read a tsv file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
-| `.text("path/to/file.txt")`  |  Read a txt file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
-
 ## Scales
 - https://d3js.org/d3-scale
 - The `d3.scale` function converts the input data raw values into visual values as pixels.
-- `d3.scale` needs to be set with a domain and a range. The domain sets a LIMIT for the data we are trying to represent visually.
+- `d3.scale` needs to be set with a domain and a range.
+- DOMAIN is the $[min, max]$ value interval of data.
+- RANGE is the $[min, max]$ value interval for plotting the DOMAIN, e. g., for representing the domain visually.
 
 | Method   |      Usage      |  Example |  
 |---|---|---|
+| `.scaleLinear(domain, range)`  | Linear map between range and domain | `y_scale = d3.scaleLinear().range([height, 0]); y_scale.domain([0, d3.max(data, (d) => d.Population)])` |
+| `.scaleTime(domain, range)`  | For working with data that represents dates in local time | `d3.` |
+| `.scaleUtc(domain, range)`  | Equivalent to scaleTime, but the returned time scale operates in Coordinated Universal Time rather than local time. | `d3.` |
+| `.scaleOrdinal(domain, range)`  | ordinal scales have a discrete domain and range.  | `const color = d3.scaleOrdinal().domain(colors.keys()).range(colors.values());` |
+| `.scalePow(domain, range)`  | Power scale (y = a*pow(x, expoent) + b) between domain and range | `const x = d3.scalePow([0, 100], ["red", "blue"]).exponent(2);` |
+| `.scaleSqrt(domain, range)`  | Power scale (y = a*sqrt(x)  + b) between domain and range | `` |
+| `.scaleLog(domain, range)`  | Power scale (y = a*log(x, base)  + b) between domain and range | `const x = d3.scaleLog([0, 100], ["red", "blue"]).base(2);` |
+| `.scaleBand(domain, range)`  | Map intervals of domain to points in range. For working with bar charts | `x_scale = d3.scaleBand().range([0, width]); x_scale.domain(data.map((d) => d.Name);` |
+| `.scalePoint(domain, range)`  | Map discrete points of domain to points in range | `const x = d3.scalePoint(["a", "b", "c"], [0, 960]);` |
+| `.scale()`  | General use scales | `d3.` |
+
 | `.domain([min, max])`  | Range of visual display, in pixels | `d3.` |
 | `.range([min, max])`  | Range of raw data | `d3.` |
-| `.scaleLinear()`  | Linear map between range and domain | `y_scale = d3.scaleLinear().range([height, 0]); y_scale.domain([0, d3.max(data, (d) => d.Population)])` |
-| `.scaleTime()`  | For working with data that represents dates | `d3.` |
-| `.scaleBand()`  | For working with bar charts | `x_scale = d3.scaleBand().range([0, width]); x_scale.domain(data.map((d) => d.Name);` |
-| `.scale()`  | General use scales | `d3.` |
-| `.scaleOrdinal()`  |  | `const color = d3.scaleOrdinal().domain(colors.keys()).range(colors.values());` |
-| `.`  |  | `d3.` |
-| `.`  |  | `d3.` |
+| `scale_object(value) `  | Converts a value from the domain to a range value | `d3.` |
+| `.invert(value) `  | Converts a value from the range to a domain value | `d3.` |
+| `.clamp(true | false)`  | If the scale will accept values outside the domain. If not, the values are clipped. | `d3.` |
+| `.ticks(count)`  | Returns approximately count representative values from the scale’s domain. | `d3.` |
+| `.tickFormat(count, specifier) `  | Returns a number format function suitable for displaying a tick value. | `d3.` |
+| `.clamp(true | false)`  | If the scale will accept values outside the domain. If not, the values are clipped. | `d3.` |
 
 ```
 const width = 960, height = 500;
@@ -83,7 +80,7 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 
 ```
 
-## Axis
+## Axes
 - https://d3js.org/d3-axis
 - The axis component renders human-readable reference marks for scales.
 -  you only need to pass an existing d3.scale and then append it to a SVG
@@ -94,6 +91,22 @@ d3.json("https://raw.githubusercontent.com/iamspruce/intro-d3/main/nigeria-state
 | `.axisBottom(scale)`  | Top axis | `let bottom_axis = d3.axisBottom(scale); svg.append("g").call(bottom_axis); |
 | `.axisLeft(scale)`  | Top axis | `let bottom_axis = d3.axisBottom(scale); svg.append("g").call(bottom_axis); |
 | `.axisRight(scale)`  | Top axis | `let bottom_axis = d3.axisBottom(scale); svg.append("g").call(bottom_axis); |
+
+
+## Working with data
+- https://d3js.org/d3-selection/joining
+- https://d3js.org/d3-selection/control-flow
+- 
+| Method   |      Usage      |  Example |  
+|---|---|---|
+| `.data(json)`  | join the specified data to the selected element(s) | `d3.selectAll(".d3_fruit").data(fruits).text((d) => d)` |
+| `.join("element")`  |  appends, removes, and reorders elements as necessary to match the specified data. | `d3.selectAll("p").data(fruits).join("p").attr("class", "d3_fruit").text((d) => d)` |
+| `.json("path/to/file.json")`  |  Read a json file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
+| `.csv("path/to/file.csv")`  |  Read a csv file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
+| `.xml("path/to/file.xml")`  |  Read a xml file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
+| `.tsv("path/to/file.tsv")`  |  Read a tsv file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
+| `.text("path/to/file.txt")`  |  Read a txt file and return the data. | `d3.json("/path/to/file.json").then((data) => {  console.log(data); })` |
+
 
 
 ## Event Handling
