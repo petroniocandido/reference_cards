@@ -165,6 +165,23 @@
 
 ### Events
 
+- The events are generated when the cluster’s resources — such as pods, deployments, or nodes — change state.
+-  Kubernetes events don’t persist throughout your cluster life cycle, as there’s no mechanism for retention. They’re short-lived, only available for one hour after the event is generated
+- Sources of Events:
+  - State change
+  - Configuration changes
+  - Scheduling or failed scheduling scenarios
+
+| Type | Description |
+| --- | --- |
+|Failed | | Caused when there’s a manifest-level error on your object manifest, or there’s a problem pulling the container image from the repository. | 
+|Evicted | | Caused when the scheduler sends the pod to a node with insufficient resources available  |
+|Failed scheduling| FailedScheduling  | happens when there isn’t a sufficient node. |
+|Volume events ||
+|Node events ||
+
+
+
 | Command | Description |
 | --- | --- |
 |```kubectl get events --sort-by=.metadata.creationTimestamp```| 
