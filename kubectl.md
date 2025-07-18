@@ -134,10 +134,25 @@
 - A ConfigMap is an object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. ConfigMaps allows you to decouple environment-specific configuration from your container images, so that your applications are easily portable.
 
 ### Deployments
-
+- A *ReplicaSet* purpose is to maintain a stable set of replica Pods running at any given time.
+  - The pods in a ReplicaSet usually doesn't have persistent volumes 
+  - As such, it is often used to guarantee the availability of a specified number of identical Pods.
+  - Typically, you define a Deployment and let it manage ReplicaSets automatically.
+- A *StatefulSet* runs a group of Pods, and maintains a sticky identity for each of those Pods.
+  - This is useful for managing applications that need persistent storage or a stable, unique network identity.
+  - Provides guarantees about the creation order and uniqueness of these Pods.
+- A *DaemonSet* ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+  - Some typical uses of a DaemonSet are running a cluster storage daemon on every node, running a logs collection daemon on every node, running a node monitoring daemon on every node 
+- A *Deployment* manages a set of Pods to run an application workload, usually one that doesn't maintain state.
+- 
 | Command | Description |
 | --- | --- |
-|```kubectl get deployment``` |
+|```kubectl get rs``` | Return the ReplicaSets |
+|```kubectl get deployment``` | Return the deployments |
+|```kubectl scale deployment/<name> --replicas=<num_replicas>``` | Increase the number of replicas of a deployment |
+|```kubectl autoscale deployment/<name> --min=<num> --max=<num> --cpu-percent=<num>``` |  set up an autoscaler for your Deployment and choose the minimum and maximum number of Pods you want to run based on the CPU utilization of your existing Pods.* |
+
+*  horizontal Pod autoscaling should be enabled in the cluster
 
 ### Services, Port-Forwards and Ingress
 - *Service*: is a method for exposing a network application that is running as one or more Pods in your cluster. A Service can map any incoming port to a targetPort. By default and for convenience, the targetPort is set to the same value as the port field.
@@ -187,6 +202,9 @@
 |```kubectl get events --sort-by=.metadata.creationTimestamp```| 
 
 ### Ingress
+- Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
+- An Ingress may be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL / TLS, and offer name-based virtual hosting.
+- An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer, though it may also configure your edge router or additional frontends to help handle the traffic.
 
 | Command | Description |
 | --- | --- |
@@ -213,9 +231,19 @@
 |```kubectl proxy```|  runs a proxy to the Kubernetes API Server
 
 ## Volumes
+-  *Volumes* provide a way for containers in a pod to access and share data via the filesystem.
+   - *Ephemeral volume* types have a lifetime linked to a specific Pod. When a pod ceases to exist, Kubernetes destroys ephemeral volumes.
+   - *Persistent volumes* exist beyond the lifetime of any individual pod.  Kubernetes does not destroy persistent volumes.
+- At its core, a volume is a directory, possibly with some data in it, which is accessible to the containers in a pod. How that directory comes to be, the medium that backs it, and the contents of it are determined by the particular volume type used.
+- A *Provider* is a driver or plugin that enables a certain type of volume
+- A *Storageclass* is similar to “profiles” in some other storage system designs. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators.
+- A *PersistentVolume (PV)* is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes. 
+- A *PersistentVolumeClaim (PVC)*  is a request for storage by a user. It is similar to a Pod. Pods consume node resources, and PVCs consume PV resources. 
+- 
+
 | Command | Description |
 | --- | --- |
-sc | Storage Classe
+sc | Storage Class
 pv | Persistent Volumes
 pvc | Persistent Volume Claims
 volumeattachments | view the volumes attached to nodes (non-namespaced)
