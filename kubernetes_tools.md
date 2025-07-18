@@ -11,11 +11,26 @@
 - [Rancher](https://www.rancher.com/)  - Enterprise Kubernetes Management. It addresses the operational and security challenges of managing multiple Kubernetes clusters, while providing DevOps teams with integrated tools for running containerized workloads.
 - [Podman](https://podman.io/)
 
+## CRI - Container Runtime Interface
+- [containerd](https://github.com/containerd/containerd)
+- [CRI-O](https://cri-o.io/)
+- [docker]()
+
+## CNI - Container Network Interface
+- [calico](https://github.com/projectcalico/calico):
+- [cilium](https://github.com/cilium/cilium)
+
 ## Tools
 - [ansible](https://www.ansible.com/) - Architecture as code:  IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
-- Helm
+- [Helm]()
 - [k9s](https://k9scli.io/) - Shell CLI
 - Portainer
 - [kubeTUI](https://github.com/sarub0b0/kubetui)
+- [kustomize]()
+
+## Plugins
+- [MetalLB](https://metallb.io/): MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols
+- [Volcano](https://volcano.sh/en/): Cloud native batch scheduling system for compute-intensive workloads 
+
 ## Linux 
 - [Talos Linux](https://www.talos.dev/) - A modern OS for Kubernetes.
