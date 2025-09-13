@@ -6,6 +6,7 @@
 * https://samueltessaro.github.io/escolhaumalicenca.com.br/
 
 Licença |	Tipo |	Uso Comercial | Modificação | Distribuição | Copyleft | Proteção de Patentes
+----------------------------------------------------------------------------------------------
 MIT |	Permissiva |	Sim |	Sim |	Sim |	Não |	Não
 Apache 2.0 |	Permissiva |	Sim |	Sim |	Sim |	Não |	Sim
 BSD 2-Clause |	Permissiva |	Sim |	Sim |	Sim |	Não |	Não
