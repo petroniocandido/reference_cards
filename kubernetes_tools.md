@@ -23,6 +23,13 @@
 ## CSI - Container Storage Interface
 - 
 
+## CRD - Customer Resource Definition
+- Enables the extension of the Kubernetes API with user-defined custom objects
+- CRDs provide a mechanism to introduce new, custom resource types into a Kubernetes cluster, allowing users to define and manage application-specific data or infrastructure components as first-class Kubernetes objects.
+- O CRD é definido por um YAML
+- O CR - Custom Resource é um objeto do tipo definido pelo CRD
+- https://medium.com/@muppedaanvesh/a-hand-on-guide-to-kubernetes-custom-resource-definitions-crds-with-a-practical-example-%EF%B8%8F-84094861e90b 
+
 ## Tools
 - [ansible](https://www.ansible.com/) - Architecture as code:  IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
 - [Helm](): Package manager for Kubernetes applications, simplifying deployment and management.
