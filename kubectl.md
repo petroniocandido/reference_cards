@@ -248,3 +248,10 @@ pv | Persistent Volumes
 pvc | Persistent Volume Claims
 volumeattachments | view the volumes attached to nodes (non-namespaced)
 
+## CRD - Custom Resources
+
+| Command | Description |
+| --- | --- |
+`kubectl get crd`  | List all CRDs
+
+
