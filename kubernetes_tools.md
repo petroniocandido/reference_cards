@@ -32,6 +32,7 @@
 
 ## Tools
 - [ansible](https://www.ansible.com/) - Architecture as code:  IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
+- [Istio](https://istio.io/) - 
 - [Helm](): Package manager for Kubernetes applications, simplifying deployment and management.
 - [k9s](https://k9scli.io/) - Shell CLI
 - Portainer
