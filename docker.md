@@ -143,3 +143,14 @@ docker image load -i image.tar.gz
 ```
 docker push <ip:5000>/<imagename>
 ```
+
+- Show all images
+```
+http://192.168.7.161:5000/v2/_catalog
+```
+
+- Show image tags
+```
+http://192.168.7.161:5000/v2/webinterface/tags/list
+```
+
