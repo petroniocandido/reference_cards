@@ -62,7 +62,7 @@
 ```docker history <hash>```	| Exibe o histórico de uma imagem
 ```docker image prune```	| Remove uma imagem que não está sendo utilizada
 ```docker image prune -a```	| Remove todas as imagens que não estão sendo usadas por containers
-```docker save <hash>:latest > image.tar.gz```| Export/Save image in tar file
+```docker save -o image.tar <hash>:latest```| Export/Save image in tar file
 ```docker image load -i image.tar.gz``` | Load an imagem from tar file
 
 ### Parâmetros docker run
